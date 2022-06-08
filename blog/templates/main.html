@@ -15,8 +15,41 @@
 
     <div class="container ">
 
-        <h1>Medium Post</h1>
-        <br>
+      <div class="row">
+        
+          <div class="col s4">
+            <h1>Medium Post</h1>
+          </div>
+          <br>
+          <br>
+          <br>
+
+          {% if request.user.is_authenticated %}
+
+          <div class="col s2 right-align">
+            <a href = "{% url 'login' %}" class="waves-effect waves-light btn cyan darken-4"><i class="material-icons left">account_circle</i>{{ request.user }}</a>
+          </div>
+
+          {% else %}
+
+          <div class="col s2 right-align">
+            <a href = "{% url 'login' %}" class="waves-effect waves-light btn cyan darken-4"><i class="material-icons left">account_circle</i>Login</a>
+          </div>
+
+          {% endif %}
+
+          {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+
+      </div>
+
+      
+        
 
     {% block content %}
 
