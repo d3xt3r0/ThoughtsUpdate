@@ -7,4 +7,7 @@
 
 - [x] Beautify the form
 - [ ] Implement Auth
+    - [x] Login
+    - [x] Registration
+    - [x] Page Restriction
 - [ ] Implement crypto payment

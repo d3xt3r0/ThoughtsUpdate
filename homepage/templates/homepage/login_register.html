@@ -1,6 +1,10 @@
 {% extends 'main.html' %}
 
+{% load materializecss %}
 {% block content %}
+
+
+{% if login == 'login' %}
 
 <div class="row">
     <br>
@@ -21,10 +25,29 @@
 
         </div>
 
+        <div>
+            <a href="{% url 'register' %}">Create an account</a>
+        </div>
+
     </form>
 
 </div>
 </div>
+
+{% else %}
+
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+
+        {{ form|materializecss }}
+
+        <button type="submit" class="btn" value="Submit">Submit</button>
+    </form>
+
+</div>
+
+{% endif %}
 
 
 

@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import get_user, authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
 from .models import Post
 from .forms import PostForm
 
@@ -29,6 +30,11 @@ def index(request):
 def login_view(request):
 
 
+    if request.user.is_authenticated:
+        logout(request)
+        return redirect('index')
+
+
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -45,6 +51,24 @@ def login_view(request):
         else:
             messages.error(request, 'Username or password, incorrect')
 
-    context = {}
+    context = {'login':'login'}
+    return render(request, 'homepage/login_register.html', context)
+
+def register_view(request):
+
+    form = UserCreationForm()
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+
+            login(request, user)
+            return redirect('index')
+
+
+    context = {'form':form}
     return render(request, 'homepage/login_register.html', context)
 

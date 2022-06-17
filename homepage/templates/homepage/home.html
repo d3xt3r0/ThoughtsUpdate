@@ -3,6 +3,8 @@
 
 {% load materializecss %}
   {% block content %}
+
+  {% if request.user.is_authenticated %}
         
   <div class="row">
     <form class="col s12 m4 l8" method = 'POST' action = "">  
@@ -21,6 +23,8 @@
       </div>
     </form>
   </div>
+
+  {% endif %}
 
 
         {% for post in posts %}
