@@ -6,7 +6,7 @@
 # TODO
 
 - [x] Beautify the form
-- [ ] Implement Auth
+- [x] Implement Auth
     - [x] Login
     - [x] Registration
     - [x] Page Restriction
