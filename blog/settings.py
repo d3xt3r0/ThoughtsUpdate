@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ubmso$wy&!6++yl(q-1tbii+i+0^un5bo8fer+k1@who-l#8j7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['thoughts-update.herokuapp.com','thoughts-update.onrender.com', '127.0.0.1']
+ALLOWED_HOSTS = ['thoughts-update.herokuapp.com','thoughtsupdate.dev-prathap.repl.co/', '127.0.0.1']
 
 
 # Application definition
